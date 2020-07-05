@@ -77,28 +77,28 @@ while True:
 
     print (telegram_line) #debug
 
-    if re.match(b'(?=1-0:1.7.0)', telegram_line): #1-0:1.7.0 = Actueel verbruik in kW
+#    if re.match(b'(?=1-0:1.7.0)', telegram_line): #1-0:1.7.0 = Actueel verbruik in kW
       # 1-0:1.7.0(0000.54*kW)
-      kw = telegram_line[10:-4] # Knip het kW gedeelte eruit (0000.54)
-      watt = float(kw) * 1000 # vermengvuldig met 1000 voor conversie naar Watt (540.0)
-      watt = int(watt) # rond float af naar heel getal (540)
+#      kw = telegram_line[10:-4] # Knip het kW gedeelte eruit (0000.54)
+#      watt = float(kw) * 1000 # vermengvuldig met 1000 voor conversie naar Watt (540.0)
+#      watt = int(watt) # rond float af naar heel getal (540)
 
-    if re.match(b'(?=1-0:1.8.1)', telegram_line): #1-0:1.8.1 - Hoog tarief / 1-0:1.8.1(13579.595*kWh)
-      kwh1 = telegram_line[10:-5] # Knip het kWh gedeelte eruit (13579.595)
+#    if re.match(b'(?=1-0:1.8.1)', telegram_line): #1-0:1.8.1 - Hoog tarief / 1-0:1.8.1(13579.595*kWh)
+#      kwh1 = telegram_line[10:-5] # Knip het kWh gedeelte eruit (13579.595)
 
-    if re.match(b'(?=1-0:1.8.2)', telegram_line): #1-0:1.8.2 - Laag tarief / 1-0:1.8.2(14655.223*kWh)
-      kwh2 = telegram_line[10:-5] # Knip het kWh gedeelte eruit (14655.223)
+#    if re.match(b'(?=1-0:1.8.2)', telegram_line): #1-0:1.8.2 - Laag tarief / 1-0:1.8.2(14655.223*kWh)
+#      kwh2 = telegram_line[10:-5] # Knip het kWh gedeelte eruit (14655.223)
 
-    if gasflag == 1:
-      gas = telegram_line[1:-1]
-      gasflag = 0
+#    if gasflag == 1:
+#      gas = telegram_line[1:-1]
+#      gasflag = 0
    
-    if re.match(b'(?=0-1:24.3.0)', telegram_line): #0-1:24.3.0 - Gasverbruik
-      gasflag = 1
+#    if re.match(b'(?=0-1:24.3.0)', telegram_line): #0-1:24.3.0 - Gasverbruik
+#      gasflag = 1
 
     # Check wanneer het uitroepteken ontavangen wordt (einde telegram)
-    if re.match(b'(?=!)', telegram_line):
-      checksum_found = True
+#    if re.match(b'(?=!)', telegram_line):
+#      checksum_found = True
 
   ser.close()
 
